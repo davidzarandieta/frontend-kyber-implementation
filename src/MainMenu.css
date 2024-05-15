@@ -9,11 +9,44 @@
   align-items: center;
   background-color: #0e0e0e; /* Color de fondo oscuro */
   color: #ffffff; /* Color de texto blanco */
+  font-family: sans-serif;
 }
+
 .menu-content {
   position: absolute;
+  font-family: sans-serif;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
+
+.danfo-uniquifier {
+  font-family: "Danfo", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: bold;
+  font-variation-settings:
+    "ELSH" 0;
+}
+
+.button {
+  width: 420px;
+  height: 75px;
+  background-color: #ffffff;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+

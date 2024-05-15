@@ -13,11 +13,11 @@ const MainMenu = () => {
         </div>
         <h1 className="title">CRYSTALS-Kyber</h1>
         <p className="subtitle">¡Bienvenido a la era de la criptografía cuántica!</p>
-        <div className="button-container">
-          <Link to="/CifradoView" className="start-button">Empieza a cifrar con Kyber</Link>
-        </div>
+        <div className="button">
+          <Link to="/CifradoView" className="start-button"><strong>Empieza a cifrar con Kyber</strong></Link>
         </div>
       </div>
+    </div>
   );
 };
 
