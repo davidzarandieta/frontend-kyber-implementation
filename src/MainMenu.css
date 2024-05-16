@@ -49,4 +49,71 @@
   background-color: #000000;
   color: #ffffff;
 }
+.top-menu {
+  position: fixed;
+  top: 50px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 999;
+}
 
+.top-menu .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.top-menu .menu-items {
+  display: flex;
+  align-items: center;
+}
+
+.top-menu .menu-items li {
+  list-style: none;
+  margin-left: 20px;
+}
+
+.top-menu .menu-items li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.top-menu .menu-items li a:hover {
+  color: #ff0000;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container .button {
+  width: 420px;
+  height: 75px;
+  background-color: #ffffff;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.button-container .button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}

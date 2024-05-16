@@ -12,9 +12,9 @@ const MainMenu = () => {
           <img src={kyberlogo} alt="Logo de Kyber" /> {/* Usa la variable kyberlogo para la ruta del logo */}
         </div>
         <h1 className="title">CRYSTALS-Kyber</h1>
-        <p className="subtitle">¡Bienvenido a la era de la criptografía cuántica!</p>
+        <p className="subtitle">¡Bienvenido a la era de la criptografía post-cuántica!</p>
         <div className="button">
-          <Link to="/CifradoView" className="start-button"><strong>Empieza a cifrar con Kyber</strong></Link>
+          <Link to="/ElectionView" className="start-button"><strong>Empieza a cifrar con Kyber</strong></Link>
         </div>
       </div>
     </div>

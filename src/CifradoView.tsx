@@ -7,19 +7,24 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Switch from '@mui/material/Switch';
 import { Application } from '@splinetool/runtime';
 import './MainMenu.css';
+import kyberlogo from '/kyber-logo.png';
 
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
-  width: 62,
-  height: 34,
-  padding: 7,
+  width: 100,
+  height: 50,
+  padding: 10,
+  position: 'fixed',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   '& .MuiSwitch-switchBase': {
     margin: 1,
     padding: 0,
     transform: 'translateX(6px)',
     '&.Mui-checked': {
       color: '#fff',
-      transform: 'translateX(22px)',
+      transform: 'translateX(48px)', // Increase the translateX value to move the switch further
       '& .MuiSwitch-thumb:before': {
         content: "'1'",
         position: 'absolute',
@@ -30,7 +35,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: '14px',
+        fontSize: '24px',
         fontWeight: 'bold',
         color: '#fff',
       },
@@ -46,8 +51,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-thumb': {
     backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
-    width: 32,
-    height: 32,
+    width: 40,
+    height: 40,
     '&::before': {
       content: "'0'",
       position: 'absolute',
@@ -58,7 +63,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      fontSize: '14px',
+      fontSize: '24px',
       fontWeight: 'bold',
       color: '#fff',
     },
@@ -78,23 +83,31 @@ const CifradoView = () => {
   }, []);
   
   return (
-    <div className="main-menu">
-      <div className="menu-content">
+    <div>
+      <div className="top-menu">
+        <div className="menu-content">
+          <h1 className="title"><Link to="/"><img src={kyberlogo} alt="Logo de Kyber" /></Link></h1>
+        </div>
+      </div>
+      <div className="main-menu">
+        <div className="menu-content">
+        <h1 className="title">Elige el bit que quieras cifrar.</h1>
+        <br></br>
+        <br></br>
+        <br></br>
           <form>
-            <label htmlFor="bit">Elige el bit a cifrar:</label>
+            {/* <label htmlFor="bit">Elige el bit a cifrar:</label> */}
             <FormGroup>
               <FormControlLabel
                 control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-                label="BIT"
+                label=""
               />
-            </FormGroup>
-            <div className="button-container">
-              <button  className="cifrar-button">Cifrar</button>
-            </div>
+            </FormGroup>         
+            <button style={{ margin: '0 auto' }} className="button">Cifrar</button>
           </form>
-          <Link to="/">Volver al menú principal</Link>
         </div>
-      <canvas id="canvas3d" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%' }}></canvas>
+        <canvas id="canvas3d" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%' }}></canvas>
+      </div>
     </div>
   );
 };
