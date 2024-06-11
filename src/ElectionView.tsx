@@ -16,8 +16,8 @@ const ElectionView = () => {
       <div className="menu-content">
         <h1 className="title">Elige la implementación que desees:</h1>
         <div className="button-container">
-          <Link to="/CifradoView" className="button"><strong>Implementación Simple</strong></Link>
-          <Link to="/CifradoView" className="button"><strong>Implementación Kyber</strong></Link>
+          <Link to="/CifradoView" className="button"><strong>Implementación Regev</strong></Link>
+          <Link to="/CifradoViewKyber" className="button"><strong>Implementación Kyber</strong></Link>
         </div>
       </div>
     </div>

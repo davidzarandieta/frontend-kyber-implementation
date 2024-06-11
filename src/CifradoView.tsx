@@ -1,5 +1,4 @@
-
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import FormGroup from '@mui/material/FormGroup';
@@ -8,7 +7,6 @@ import Switch from '@mui/material/Switch';
 import { Application } from '@splinetool/runtime';
 import './MainMenu.css';
 import kyberlogo from '/kyber-logo.png';
-
 
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 100,
@@ -76,6 +74,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 }));
 
 const CifradoView = () => {
+  const [switchValue, setSwitchValue] = useState(false);
+
   useEffect(() => {
     const canvas = document.getElementById('canvas3d') as HTMLCanvasElement;
     const app = new Application(canvas);
@@ -91,19 +91,23 @@ const CifradoView = () => {
       </div>
       <div className="main-menu">
         <div className="menu-content">
-        <h1 className="title">Elige el bit que quieras cifrar.</h1>
-        <br></br>
-        <br></br>
-        <br></br>
+          <h1 className="title">Elige el bit que quieras cifrar.</h1>
+          <br></br>
+          <br></br>
+          <br></br>
           <form>
             {/* <label htmlFor="bit">Elige el bit a cifrar:</label> */}
             <FormGroup>
               <FormControlLabel
-                control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+                control={<MaterialUISwitch
+                  sx={{ m: 1 }}
+                  defaultChecked={false}
+                  onChange={(event) => setSwitchValue(event.target.checked)}
+                />}
                 label=""
               />
             </FormGroup>         
-            <button style={{ margin: '0 auto' }} className="button">Cifrar</button>
+            <Link to={switchValue ? "/ResultadoRegevViewBit1" : "/ResultadoRegevViewBit0"} style={{ margin: '0 auto' }} className="button"><strong>Cifrar</strong></Link>
           </form>
         </div>
         <canvas id="canvas3d" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%' }}></canvas>

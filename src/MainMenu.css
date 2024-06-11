@@ -117,3 +117,36 @@
   background-color: #000000;
   color: #ffffff;
 }
+
+.matrix-table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  width: 75%;
+  background-color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.matrix-table td {
+  border: 1px solid #ddd;
+  padding: 2px;  /* Reducir el padding para hacer la tabla más compacta */
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  font-size: 12px;  /* Reducir el tamaño de fuente */
+}
+
+.matrix-table tr:nth-child(even) {
+  background-color: #413737;
+}
+
+.matrix-table tr:hover {
+  background-color: #ddd;
+}
+
+.matrix-table th {
+  padding-top: 4px;  /* Reducir el padding superior e inferior */
+  padding-bottom: 4px;
+  text-align: center;
+  background-color: #4CAF50;
+  color: white;
+}
+
