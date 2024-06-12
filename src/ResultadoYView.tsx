@@ -20,7 +20,11 @@ const TopMenu = () => (
 // Componente para mostrar el contenido inicial
 const InitialContent = ({ handleContinue }: { handleContinue: () => void }) => (
     <div>
-        <h1 className="title">El módulo de la clave privada <strong>s</strong> (generada aleatoriamente) es:</h1>
+        <br />
+        <br />
+        <h1 className="title" style={{ fontSize: '305%' }}>GENERACIÓN DE CLAVES</h1>
+        <br />
+        <h1 className="title" style={{ fontSize: '205%' }}>El módulo de la clave privada <strong>s</strong> (generada aleatoriamente) es:</h1>
         <br />
         <h1 className="title">[-x<sup>4</sup>-x-1], [-x⁶-x⁵+ x⁴+x³+x²]</h1>
         <br />
@@ -97,9 +101,9 @@ const Content1 = ({ handleContinue }: { handleContinue: () => void }) => (
     <div>
         <br />
         <br />
+        <h1 className="title" style={{ fontSize: '305%' }}>GENERACIÓN DE CLAVES</h1>
         <br />
-        <br />
-        <h1 className="title" style={{ fontSize: '205%' }}>La clave pública generada es el par (A,b) que viene dado por el anillo A (generada aleatoriamente) y b<sub>i</sub> = ⟨a<sub>i</sub>, s⟩ + e<sub>i</sub>:</h1>
+        <h1 className="title" style={{ fontSize: '205%' }}>La clave pública generada es el par (A,b) que viene dado por el anillo A (generado aleatoriamente) y <p>b<sub>i</sub> = ⟨a<sub>i</sub>, s⟩ + e<sub>i</sub>:</p></h1>
         <PolynomialRing />
         <br />
         <br />
@@ -110,6 +114,10 @@ const Content1 = ({ handleContinue }: { handleContinue: () => void }) => (
 // Componente para mostrar el contenido 2
 const Content2 = ({ handleContinue }: { handleContinue: () => void }) => (
     <div>
+        <br />
+        <br />
+        <h1 className="title" style={{ fontSize: '305%' }}>CIFRADO</h1>
+        <br />
         <h1 className="title" style={{ fontSize: '205%' }}>El resultado encriptado tras calcular <p>u = A<sup>T</sup>r + e<sub>1</sub> y v = b<sup>T</sup>r + e<sub>2</sub> + m</p>
          y normalizar m'= 26 + 26x² + 26x³ + 26x⁶ es el par (u,v) :</h1>
         <RingUV />
@@ -119,11 +127,27 @@ const Content2 = ({ handleContinue }: { handleContinue: () => void }) => (
     </div>
 );
 
-const Content3 = () => (
+const Content3 = ({ handleContinue }: { handleContinue: () => void }) => (
     <div>
-        <h1 className="title">El desencriptado del par (u,v) tras calcular m<sub>n</sub> = e<sup>T</sup>r + e<sub>2</sub> + m - s<sup>T</sup> e<sub>1</sub>  determina que tu tu letra en código ASCII es:</h1>
+         <br />
         <br />
-        <h1 className="title">1011001</h1>
+        <h1 className="title" style={{ fontSize: '305%' }}>DESCIFRADO</h1>
+        <br />
+        <h1 className="title" style={{ fontSize: '205%' }}>El descifrado del par (u,v) tras calcular <p>m<sub>n</sub> = e<sup>T</sup>r + e<sub>2</sub> + m - s<sup>T</sup> e<sub>1</sub></p> 
+        si los valores están más cerca de p que de 0 definimos el bit como 1, si no, definimos como 0.</h1>
+        <button className="button" onClick={handleContinue} style={{ margin: '0 auto' }} >Continuar</button>
+    </div>
+);
+
+const Content3_1 = () => (
+    <div>
+        <br />
+        <br />
+        <h1 className="title" style={{ fontSize: '305%' }}>DESCIFRADO</h1>
+        <br />
+        <h1 className="title"style={{ fontSize: '205%' }}>El descifrado del par (u,v)  determina que los bits son: </h1>
+        <h1 className="title"style={{ fontSize: '205%' }}>1011001</h1>
+        <h1 className="title"style={{ fontSize: '205%' }}>Por lo tanto tu letra en código ASCII es: Y</h1>
         <br />
         <Link to="/CifradoViewKyber" className="button" style={{ margin: '0 auto' }}><strong>Finalizar</strong></Link>
     </div>
@@ -135,6 +159,7 @@ const ResultadoYView = () => {
     const [showContent1, setShowContent1] = useState(false);
     const [showContent2, setShowContent2] = useState(false);
     const [showContent3, setShowContent3] = useState(false);
+    const [showContent3_1, setShowContent3_1] = useState(false);
 
     useEffect(() => {
         const canvas = document.getElementById('canvas3d') as HTMLCanvasElement;
@@ -152,6 +177,9 @@ const ResultadoYView = () => {
         } else if (showContent2) {
             setShowContent2(false);
             setShowContent3(true);
+        }else if (showContent3) {
+            setShowContent3(false);
+            setShowContent3_1(true);
         }
     };
 
@@ -163,7 +191,8 @@ const ResultadoYView = () => {
                     {showText && <InitialContent handleContinue={handleContinue} />}
                     {showContent1 && <Content1 handleContinue={handleContinue} />}
                     {showContent2 && <Content2 handleContinue={handleContinue} />}
-                    {showContent3 && <Content3 />}
+                    {showContent3 && <Content3 handleContinue={handleContinue}/>}
+                    {showContent3_1 && <Content3_1 />}
                 </div>
                 <canvas id="canvas3d" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%' }}></canvas>
             </div>
