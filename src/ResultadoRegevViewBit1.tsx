@@ -126,7 +126,7 @@ const Content1 = ({ handleContinue }: { handleContinue: () => void }) => (
 // Componente para mostrar el contenido 2
 const Content2 = ({ handleContinue }: { handleContinue: () => void }) => (
     <div>
-        <h1 className="title">El resultado encriptado tras calcular ∑<sub>i∈S</sub> a<sub>i</sub>,⌊2<sup>p</sup>⌋ + ∑<sub>i∈S</sub> b<sub>i</sub> es:</h1>
+        <h1 className="title">El resultado encriptado tras calcular ∑<sub>i∈S</sub> a<sub>i</sub>,⌊2/p⌋ + ∑<sub>i∈S</sub> b<sub>i</sub> es:</h1>
         <br />
         <Matrix2 />
         <br />
