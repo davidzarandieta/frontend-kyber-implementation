@@ -20,7 +20,11 @@ const TopMenu = () => (
 // Componente para mostrar el contenido inicial
 const InitialContent = ({ handleContinue }: { handleContinue: () => void }) => (
     <div>
-        <h1 className="title">El vector de la clave privada <strong>s</strong> (generada aleatoriamente) es:</h1>
+        <br />
+        <br />
+        <h1 className="title" style={{ fontSize: '305%' }}>GENERACIÓN DE CLAVES</h1>
+        <br />
+        <h1 className="title" style={{ fontSize: '205%' }}>El vector de la clave privada <strong>s</strong> (generada aleatoriamente) es:</h1>
         <br />
         <h1 className="title">[0, 12, 1, 7]</h1>
         <br />
@@ -113,9 +117,9 @@ const Content1 = ({ handleContinue }: { handleContinue: () => void }) => (
     <div>
         <br />
         <br />
+        <h1 className="title" style={{ fontSize: '305%' }}>GENERACIÓN DE CLAVES</h1>
         <br />
-        <br />
-        <h1 className="title" style={{ fontSize: '205%' }}>La clave pública está definida por el par (A,b) que viene dado por una matriz A (generada aleatoriamente) y b<sub>i</sub> = ⟨a<sub>i</sub>, s⟩ + e<sub>i</sub>:</h1>
+        <h1 className="title" style={{ fontSize: '205%' }}>La clave pública está definida por el par (A,b) que viene dado por una matriz A (generada aleatoriamente) y <p>b<sub>i</sub> = ⟨a<sub>i</sub>, s⟩ + e<sub>i</sub></p></h1>
         <br />
         <br />
         <button className="button" onClick={handleContinue} style={{ margin: '0 auto' }} >Continuar</button>
@@ -124,6 +128,10 @@ const Content1 = ({ handleContinue }: { handleContinue: () => void }) => (
 
 const Content1_1 = ({ handleContinue }: { handleContinue: () => void }) => (
     <div>
+        <br />
+        <br />
+        <br />
+        <br />
         <br />
         <br />
         <br />
@@ -139,7 +147,11 @@ const Content1_1 = ({ handleContinue }: { handleContinue: () => void }) => (
 // Componente para mostrar el contenido 2
 const Content2 = ({ handleContinue }: { handleContinue: () => void }) => (
     <div>
-        <h1 className="title">El resultado encriptado tras calcular ∑<sub>i∈S</sub> a<sub>i</sub>, ∑<sub>i∈S</sub> b<sub>i</sub> es:</h1>
+        <br />
+        <br />
+        <h1 className="title" style={{ fontSize: '305%' }}>CIFRADO</h1>
+        <br />
+        <h1 className="title" style={{ fontSize: '205%' }}>El resultado encriptado tras calcular ∑<sub>i∈S</sub> a<sub>i</sub>, ∑<sub>i∈S</sub> b<sub>i</sub> es:</h1>
         <br />
         <Matrix2 />
         <br />
@@ -148,11 +160,29 @@ const Content2 = ({ handleContinue }: { handleContinue: () => void }) => (
     </div>
 );
 
-const Content3 = () => (
+const Content3 = ({ handleContinue }: { handleContinue: () => void }) => (
     <div>
-        <h1 className="title">El desencriptado del par (A,b) tras calcular b − ⟨a,s⟩ determina que tu bit es:</h1>
         <br />
-        <h1 className="title">0</h1>
+        <br />
+        <h1 className="title" style={{ fontSize: '305%' }}>DESCIFRADO</h1>
+        <br />
+        <h1 className="title" style={{ fontSize: '205%' }}>El descifrado del par (A,b) se calcula a través de <p>diff=b − ⟨a,s⟩</p> Si el resultado está más cerca de 0 que de ⌊2/p⌋ modulo p, el resultado será 0.
+             En caso contrario el resultado será 1.</h1>
+        <br />
+        <br />
+        <button className="button" onClick={handleContinue} style={{ margin: '0 auto' }} >Continuar</button>
+    </div>
+);
+
+const Content3_1 = () => (
+    <div>
+        <br />
+        <br />
+        <h1 className="title" style={{ fontSize: '305%' }}>DESCIFRADO</h1>
+        <br />
+        <h1 className="title"style={{ fontSize: '205%' }}>El descifrado del par (A,b)  determina que: </h1>
+        <h1 className="title"style={{ fontSize: '205%' }}>diff{'<'}p/2</h1>
+        <h1 className="title"style={{ fontSize: '205%' }}>Por lo tanto es tu bit: 0</h1>
         <br />
         <Link to="/CifradoView" className="button" style={{ margin: '0 auto' }}><strong>Finalizar</strong></Link>
     </div>
@@ -165,6 +195,8 @@ const ResultadoRegevViewBit0 = () => {
     const [showContent1_1, setShowContent1_1] = useState(false);
     const [showContent2, setShowContent2] = useState(false);
     const [showContent3, setShowContent3] = useState(false);
+    const [showContent3_1, setShowContent3_1] = useState(false);
+
 
     useEffect(() => {
         const canvas = document.getElementById('canvas3d') as HTMLCanvasElement;
@@ -178,16 +210,18 @@ const ResultadoRegevViewBit0 = () => {
             setShowContent1(true);
         } else if (showContent1) {
             setShowContent1(false);
-            setShowContent1_1(true); // Mostrar Content1_1 después de que Content1 haya sido mostrado
-        } else if (showContent1_1) {
+            setShowContent1_1(true);
+        }else if (showContent1_1) {
             setShowContent1_1(false);
-            setShowContent2(true); // Mostrar Content2 después de que Content1_1 haya sido mostrado y ocultado
-        } else if (showContent2) {
+            setShowContent2(true);
+        }else if (showContent2) {
             setShowContent2(false);
             setShowContent3(true);
+        }else if (showContent3) {
+            setShowContent3(false);
+            setShowContent3_1(true);
         }
     };
-    
 
     return (
         <div>
@@ -198,7 +232,8 @@ const ResultadoRegevViewBit0 = () => {
                     {showContent1 && <Content1 handleContinue={handleContinue} />}
                     {showContent1_1 && <Content1_1 handleContinue={handleContinue} />}
                     {showContent2 && <Content2 handleContinue={handleContinue} />}
-                    {showContent3 && <Content3 />}
+                    {showContent3 && <Content3 handleContinue={handleContinue} />}
+                    {showContent3_1 && <Content3_1 />}
                 </div>
                 <canvas id="canvas3d" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%' }}></canvas>
             </div>
