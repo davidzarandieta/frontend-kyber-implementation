@@ -52,7 +52,7 @@
 }
 .top-menu {
   position: fixed;
-  top: 35px;
+  top: 38px;
   left: 0;
   right: 0;
   height: 60px;
@@ -151,7 +151,7 @@
   color: white;
 }
 
-@media (max-width: 768px) {
+@media (max-height: 920px){
   .menu-content {
     width: 90%; /* Ajustar el ancho del contenido */
   }

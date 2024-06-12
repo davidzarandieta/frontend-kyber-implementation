@@ -115,7 +115,20 @@ const Content1 = ({ handleContinue }: { handleContinue: () => void }) => (
         <br />
         <br />
         <br />
-        <h1 className="title" style={{ fontSize: '205%' }}>La clave pública generada es el par (A,b) que viene dado por la matriz A (generada aleatoriamente) y b<sub>i</sub> = ⟨a<sub>i</sub>, s⟩ + e<sub>i</sub>:</h1>
+        <h1 className="title" style={{ fontSize: '205%' }}>La clave pública definida por el par (A,b) viene dado por una matriz A (generada aleatoriamente) y b<sub>i</sub> = ⟨a<sub>i</sub>, s⟩ + e<sub>i</sub>:</h1>
+        <br />
+        <br />
+        <button className="button" onClick={handleContinue} style={{ margin: '0 auto' }} >Continuar</button>
+    </div>
+);
+
+const Content1_1 = ({ handleContinue }: { handleContinue: () => void }) => (
+    <div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1 className="title" style={{ fontSize: '205%' }}>La clave pública (A,b) es:</h1>
         <Matrix />
         <br />
         <br />
@@ -149,6 +162,7 @@ const Content3 = () => (
 const ResultadoRegevViewBit0 = () => {
     const [showText, setShowText] = useState(true);
     const [showContent1, setShowContent1] = useState(false);
+    const [showContent1_1, setShowContent1_1] = useState(false);
     const [showContent2, setShowContent2] = useState(false);
     const [showContent3, setShowContent3] = useState(false);
 
@@ -168,6 +182,9 @@ const ResultadoRegevViewBit0 = () => {
         } else if (showContent2) {
             setShowContent2(false);
             setShowContent3(true);
+        }else if (showContent1_1) {
+            setShowContent1_1(false);
+            setShowContent2(true);
         }
     };
 
@@ -178,6 +195,7 @@ const ResultadoRegevViewBit0 = () => {
                 <div className="menu-content">
                     {showText && <InitialContent handleContinue={handleContinue} />}
                     {showContent1 && <Content1 handleContinue={handleContinue} />}
+                    {showContent1_1 && <Content1_1 handleContinue={handleContinue} />}
                     {showContent2 && <Content2 handleContinue={handleContinue} />}
                     {showContent3 && <Content3 />}
                 </div>
