@@ -150,33 +150,3 @@
   background-color: #4CAF50;
   color: white;
 }
-
-@media (max-height: 920px){
-  .menu-content {
-    width: 90%; /* Ajustar el ancho del contenido */
-  }
-
-  .button {
-    width: auto; /* Permitir que el ancho sea automático para adaptarse al contenido */
-  }
-
-  .matrix-table {
-    width: 100%; /* Hacer que la tabla ocupe todo el ancho del contenedor */
-    font-size: 10px; /* Reducir el tamaño de fuente para hacer la tabla más compacta */
-  }
-  .main-menu {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #0e0e0e; /* Color de fondo oscuro */
-    color: #ffffff; /* Color de texto blanco */
-    overflow-y: auto; /* Permitir el desplazamiento vertical */
-    font-family: sans-serif;
-    font-size: 50%; /* Reducir la letra un 50% */
-  }
-}

@@ -115,7 +115,7 @@ const Content1 = ({ handleContinue }: { handleContinue: () => void }) => (
         <br />
         <br />
         <br />
-        <h1 className="title" style={{ fontSize: '205%' }}>La clave pública definida por el par (A,b) viene dado por una matriz A (generada aleatoriamente) y b<sub>i</sub> = ⟨a<sub>i</sub>, s⟩ + e<sub>i</sub>:</h1>
+        <h1 className="title" style={{ fontSize: '205%' }}>La clave pública está definida por el par (A,b) que viene dado por una matriz A (generada aleatoriamente) y b<sub>i</sub> = ⟨a<sub>i</sub>, s⟩ + e<sub>i</sub>:</h1>
         <br />
         <br />
         <button className="button" onClick={handleContinue} style={{ margin: '0 auto' }} >Continuar</button>
@@ -178,15 +178,16 @@ const ResultadoRegevViewBit0 = () => {
             setShowContent1(true);
         } else if (showContent1) {
             setShowContent1(false);
-            setShowContent2(true);
+            setShowContent1_1(true); // Mostrar Content1_1 después de que Content1 haya sido mostrado
+        } else if (showContent1_1) {
+            setShowContent1_1(false);
+            setShowContent2(true); // Mostrar Content2 después de que Content1_1 haya sido mostrado y ocultado
         } else if (showContent2) {
             setShowContent2(false);
             setShowContent3(true);
-        }else if (showContent1_1) {
-            setShowContent1_1(false);
-            setShowContent2(true);
         }
     };
+    
 
     return (
         <div>
