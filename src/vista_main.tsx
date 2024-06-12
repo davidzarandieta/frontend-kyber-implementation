@@ -1,4 +1,3 @@
-import React from 'react';
 import kyberlogo from '/kyber-logo.png'; // Import the variable kyberlogo that contains the path to the Kyber logo
 import './MainMenu.css'; // Estilo CSS para la vista del menú principal
 import { Link } from 'react-router-dom';
