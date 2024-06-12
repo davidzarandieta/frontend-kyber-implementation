@@ -6,7 +6,7 @@ import kyberlogo from '/kyber-logo.png';
 
 
 const CifradoView = () => {
-  const [switchValue, setSwitchValue] = useState(false);
+  
   const [buttonTexts, setButtonTexts] = useState({
     K: 'K',
     Y: 'Y',
